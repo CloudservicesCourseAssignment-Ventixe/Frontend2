@@ -1,34 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import CenterLayout from './assets/layouts/CenterLayout.jsx'
+import SignUp from './assets/pages/SignUp.jsx'
+import SignIn from './assets/pages/SignIn.jsx'
+import PortalLayout from './assets/layouts/PortalLayout.jsx'
+import Events from './assets/pages/Events.jsx'
+import EventDetails from './assets/pages/EventDetails.jsx'
+import { Route, Routes } from 'react-router-dom'
+import BookEvent from './assets/pages/BookEvent.jsx'
+import Dashboard from './assets/pages/Dashboard.jsx'
+import CreateEvent from './assets/pages/CreateEvent.jsx'
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Routes>
+      {/* Sidor som använder CenterLayout */}
+      <Route element={<CenterLayout />}>
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+      </Route>
+
+      {/* Sidor som använder PortalLayout */}
+      <Route element={<PortalLayout />}>
+        <Route path="/events" element={<Events />} />
+        <Route path="/events/:id" element={<EventDetails />} />
+        <Route path="/events/booking/:id" element={<BookEvent />} />
+        <Route path="/events/create-event" element={< CreateEvent/>} />
+        <Route path="/dashboard" element={< Dashboard/>} />
+        {/* Om du vill visa Events även på "/" */}
+        <Route path="/" element={<Events />} />
+      </Route>
+    </Routes>
   )
 }
 
