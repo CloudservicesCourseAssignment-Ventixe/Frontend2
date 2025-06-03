@@ -264,8 +264,6 @@ h6 {
   padding: 1.5rem 2rem;
 
 
-
-  
   .ventixe-logo {
     display: flex;
     gap: 1rem;
@@ -307,6 +305,10 @@ h6 {
   }
 
  @media (width >= 768px) {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+
 
      .ventixe-logo {
       p {
@@ -319,7 +321,9 @@ h6 {
   }
 
   @media (width >= 1400px) {
-
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
     .ventixe-logo {
       p {
         display: flex;
