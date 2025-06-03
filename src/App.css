@@ -263,6 +263,8 @@ h6 {
   border-radius: 1rem;
   padding: 1.5rem 2rem;
 
+
+
   
   .ventixe-logo {
     display: flex;
@@ -477,7 +479,7 @@ h6 {
 #events {
   display: grid;
   gap: 1rem;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 /*EVENT DETAILS CARD*/
