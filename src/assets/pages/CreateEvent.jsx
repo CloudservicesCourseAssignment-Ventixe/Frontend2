@@ -11,7 +11,7 @@ function CreateEvent() {
 
         const finalFormData = {
             ...formData,
-            eventDate: formData.eventDate ? new Date(formData.eventDate).toISOString() : null
+            eventDate: formData.eventDate ? formData.eventDate + ":00" : null
         };
 
         try {
